@@ -36,18 +36,18 @@ void draw() {
 }
 void serialEvent (Serial myPort)
 { // starts reading data from the Serial Port
-  ////开始从串行端口读取数据
+  
   // reads the data from the Serial Port up to the character '.' and puts it into the String variable "data".
-  //从串行端口读取数据，直到字符“.”并将其放入字符串变量“data”中。
+  
   data = myPort.readStringUntil('.');
   data = data.substring(0, data.length()-1);
 
-  index1 = data.indexOf(","); // find the character ',' and puts it into the variable "index1" 找到字符'，'并将其放入变量" index1 "
+  index1 = data.indexOf(","); // find the character ',' and puts it into the variable "index1" 
   angle= data.substring(0, index1);
   // read the data from position "0" to position of the variable index1 or thats the value of the angle the Arduino Board sent into the Serial Port
-  //从位置“0”读取数据到变量index1的位置，或者是Arduino板发送到串行端口的角度值
+ 
   distance= data.substring(index1+1, data.length()); // read the data from position "index1" to the end of the data pr thats the value of the distance
-  //从位置“index1”读取数据，直到数据pr的末尾，这是距离的值
+ 
   // converts the String variables into Integer
   iAngle = int(angle);
   iDistance = int(distance);
